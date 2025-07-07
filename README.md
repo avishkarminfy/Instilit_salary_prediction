@@ -94,6 +94,9 @@ The following model was selected and registered as the best:
 
 SHAP plots were generated for model interpretation and logged as part of the evaluation process (for tree-based models only).
 
+![image](https://github.com/user-attachments/assets/86815ca3-0ec1-4767-bc37-7a96cd8a176f)
+
+
 ---
 
 
