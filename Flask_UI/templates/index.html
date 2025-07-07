@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Software Salary Predictor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e0ecf8, #f7f9fb);
+            padding: 40px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            max-width: 700px;
+            margin: auto;
+            padding: 35px 45px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2b2f38;
+            margin-bottom: 30px;
+            font-size: 26px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            font-weight: 600;
+            color: #4d4d4d;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 14px;
+            margin-top: 6px;
+            border: 1px solid #d1d9e6;
+            border-radius: 10px;
+            font-size: 15px;
+            background-color: #fafbfc;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+            background-color: #ffffff;
+            outline: none;
+        }
+
+        button {
+            margin-top: 30px;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, #007bff, #0056b3);
+            color: #fff;
+            font-size: 17px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #0056b3, #003d80);
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 18px;
+            background-color: #e7fff1;
+            color: #237b3c;
+            border-left: 5px solid #28a745;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 19px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Software Salary Predictor 💼</h2>
+        <form method="POST" action="/predict">
+
+            <label>Job Title</label>
+            <input type="text" name="job_title" required>
+
+            <label>Experience Level</label>
+            <select name="experience_level" required>
+                <option value="Junior">Junior</option>
+                <option value="Mid">Mid</option>
+                <option value="Senior">Senior</option>
+                <option value="Lead">Lead</option>
+            </select>
+
+            <label>Employment Type</label>
+            <select name="employment_type" required>
+                <option value="FT">Full-Time</option>
+                <option value="PT">Part-Time</option>
+                <option value="Contract">Contract</option>
+            </select>
+
+            <label>Company Size</label>
+            <select name="company_size" required>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+
+            <label>Company Location</label>
+            <input type="text" name="company_location" required>
+
+            <label>Salary Currency</label>
+            <select name="salary_currency" required>
+                <option value="USD">USD</option>
+                <option value="INR">INR</option>
+                <option value="CAD">CAD</option>
+                <option value="GBP">GBP</option>
+                <option value="EUR">EUR</option>
+            </select>
+
+            <label>Currency (target)</label>
+            <input type="text" name="currency" placeholder="e.g. USD" required>
+
+            <label>Remote Work (0 = fully on-site, 50 = hybrid, 100 = fully remote)</label>
+            <input type="number" name="remote_ratio" required min="0" max="100">
+
+            <label>Years of Experience</label>
+            <input type="number" name="years_experience" step="0.1" required>
+
+            <label>Base Salary</label>
+            <input type="number" name="base_salary" step="0.01" required>
+
+            <label>Bonus</label>
+            <input type="number" name="bonus" step="0.01" required>
+
+            <label>Stock Options</label>
+            <input type="number" name="stock_options" step="0.01" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            💰 Predicted Salary (USD): {{ prediction }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
