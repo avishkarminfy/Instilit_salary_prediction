@@ -1,0 +1,30 @@
+# Core ML & Data Science
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.4.2
+xgboost==2.0.3
+
+# Visualization & Explainability
+matplotlib==3.8.4
+shap==0.44.1
+
+# MLflow for tracking
+mlflow==2.12.1
+
+# Evidently AI for drift detection
+evidently==0.4.15
+
+# Flask for web UI
+flask==3.0.3
+
+# PostgreSQL connector
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.30
+
+# Apache Airflow
+apache-airflow==2.9.0
+apache-airflow-providers-postgres==5.12.0
+
+# Additional helpful tools
+joblib==1.4.2
+python-dotenv==1.0.1
